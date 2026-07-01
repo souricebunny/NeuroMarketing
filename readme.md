@@ -1,11 +1,11 @@
-# 🧠 NeuroAd Intelligence
+🧠 NeuroAd Intelligence
 ### Multimodal AI Applied to Computational Advertising & Neuroscience-Inspired Analytics
 
 > Predicting consumer neural engagement from FMCG advertisement videos and scripts — faster, cheaper, and smarter than traditional ad testing.
 
 ---
 
-## 📌 Overview
+📌 Overview
 
 **NeuroAd Intelligence** is an AI-powered neuromarketing tool that analyzes FMCG (Fast-Moving Consumer Goods) advertisements and predicts how the human brain responds to them — without a single EEG headset or fMRI scan.
 
@@ -13,7 +13,7 @@ By combining multimodal AI (vision + audio + language) with neuroscience-inspire
 
 ---
 
-## 🎯 The Problem
+🎯 The Problem
 
 Traditional ad testing is:
 - **Expensive** — lab-based EEG/fMRI studies cost thousands per session
@@ -24,7 +24,7 @@ Traditional ad testing is:
 
 ---
 
-## 💡 How It Works
+💡 How It Works
 
 ```
 Ad Video + Script
@@ -46,7 +46,7 @@ AI Insight Generator (Claude / GPT-4)
 
 ---
 
-## 🧬 Inspired By
+🧬 Inspired By
 
 This project is architecturally inspired by **Meta FAIR's TRIBE v2** (Trimodal Brain Encoder) — a foundation model trained on 500+ hours of fMRI recordings that predicts neural responses across 70,000 brain regions from video, audio, and text inputs.
 
@@ -57,7 +57,7 @@ We adapt the TRIBE v2 conceptual framework using open-source pre-trained encoder
 
 ---
 
-## 📦 Tech Stack
+📦 Tech Stack
 
 | Component | Tool |
 |---|---|
@@ -73,7 +73,7 @@ We adapt the TRIBE v2 conceptual framework using open-source pre-trained encoder
 
 ---
 
-## 📊 Datasets
+📊 Datasets
 
 | Dataset | Purpose |
 |---|---|
@@ -83,7 +83,7 @@ We adapt the TRIBE v2 conceptual framework using open-source pre-trained encoder
 
 ---
 
-## 🚀 Getting Started
+🚀 Getting Started
 
 ### 1. Clone the repo
 ```bash
@@ -137,7 +137,7 @@ neuroadintelligence/
 
 ---
 
-## 📄 License
+📄 License
 
 All third-party models and datasets are used in accordance with their respective licenses.
 
@@ -147,6 +147,6 @@ All third-party models and datasets are used in accordance with their respective
 
 ---
 
-## ⭐ Topics
+⭐ Topics
 
 `neuromarketing` `multimodal-ai` `fmcg` `computational-advertising` `emotion-detection` `deepface` `streamlit` `consumer-neuroscience` `python` `tribe-v2`
