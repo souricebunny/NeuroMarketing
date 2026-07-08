@@ -1,4 +1,4 @@
-🧠 NeuroAd Intelligence
+NEUROMARKETING
 ### Multimodal AI Applied to Computational Advertising & Neuroscience-Inspired Analytics
 
 > Predicting consumer neural engagement from FMCG advertisement videos and scripts — faster, cheaper, and smarter than traditional ad testing.
