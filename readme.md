@@ -1,21 +1,23 @@
-NEUROMARKETING
+# NEUROMARKETING
+
 ### Multimodal AI Applied to Computational Advertising & Neuroscience-Inspired Analytics
 
-> Predicting consumer neural engagement from FMCG advertisement videos and scripts — faster, cheaper, and smarter than traditional ad testing.
+> Predicting consumer neural engagement from FMCG advertisement videos — faster, cheaper, and smarter than traditional ad testing.
 
 ---
 
-📌 Overview
+## 📌 Overview
 
 **NeuroAd Intelligence** is an AI-powered neuromarketing tool that analyzes FMCG (Fast-Moving Consumer Goods) advertisements and predicts how the human brain responds to them — without a single EEG headset or fMRI scan.
 
-By combining multimodal AI (vision + audio + language) with neuroscience-inspired scoring, the system identifies which moments in an ad trigger emotional responses, reward signals, and decision-making activity — giving creative teams actionable insights before a campaign goes live.
+By combining multimodal AI (facial expression + neural video encoding) with neuroscience-inspired scoring, the system identifies which moments in an ad trigger emotional responses and engagement — giving creative teams actionable insights before a campaign goes live.
 
 ---
 
-🎯 The Problem
+## 🎯 The Problem
 
 Traditional ad testing is:
+
 - **Expensive** — lab-based EEG/fMRI studies cost thousands per session
 - **Slow** — results take weeks, not hours
 - **Unscalable** — can only test a handful of participants
@@ -24,87 +26,94 @@ Traditional ad testing is:
 
 ---
 
-💡 How It Works
+## 💡 How It Works
 
 ```
-Ad Video + Script
-       ↓
+Ad Video
+   ↓
 Multimodal Feature Extraction
-  ├── 🎥 Video frames → Emotion Detection (DeepFace)
-  ├── 🔊 Audio → Tone Analysis (Whisper)
-  └── 📝 Script → Semantic Understanding (CLIP + LLM)
-       ↓
-Neuroscience Scoring Engine
-  ├── Valence    (positive ↔ negative emotional tone)
-  ├── Arousal    (calm ↔ excited activation level)
-  └── Cognitive Load (mental effort to process the ad)
-       ↓
-AI Insight Generator (Claude / GPT-4)
-       ↓
+  ├── 🎥 Video frames → Facial Expression Recognition (DeepFace, local)
+  └── 🧠 Full video   → Neural Activation Encoding (Custom TRIBE v2, Colab T4 GPU)
+   ↓
+Valence-Arousal Scoring Engine
+  ├── DeepFace weight   (60%)
+  ├── TRIBE v2 weight   (40%)
+  ├── Valence
+  ├── Arousal
+  └── Engagement Index
+   ↓
 📊 Streamlit Dashboard
 ```
 
+> 🎧 **Audio analysis (Whisper)** is included in the repo as a bonus/exploratory module — it is **not** part of the core scoring pipeline currently used for analysis.
+
 ---
 
-🧬 Inspired By
+## 🧬 Inspired By
 
 This project is architecturally inspired by **Meta FAIR's TRIBE v2** (Trimodal Brain Encoder) — a foundation model trained on 500+ hours of fMRI recordings that predicts neural responses across 70,000 brain regions from video, audio, and text inputs.
 
-We adapt the TRIBE v2 conceptual framework using open-source pre-trained encoders to build a computationally accessible neuromarketing tool.
+Rather than using the original framework as-is, we've **modified and adapted TRIBE v2's architecture** to fit our neuromarketing use case, running a customized version (not Meta's stock implementation) on Colab with a T4 GPU, alongside DeepFace for facial emotion recognition run locally.
 
 - 📄 [TRIBE v2 Project Page](https://aidemos.atmeta.com/tribev2)
 - 🤗 [TRIBE v2 on Hugging Face](https://huggingface.co/facebook/tribe-v2)
 
 ---
 
-📦 Tech Stack
+## 📦 Tech Stack
 
-| Component | Tool |
-|---|---|
-| Emotion Detection | DeepFace, FER |
-| Video Processing | OpenCV |
-| Audio Analysis | Whisper (OpenAI) |
-| Image-Text Understanding | CLIP |
-| AI Insights | Claude API / GPT-4 |
-| Dashboard | Streamlit |
-| Data Handling | Pandas, NumPy |
-| Deep Learning | PyTorch, HuggingFace Transformers |
-| Experiment Environment | Google Colab (GPU) |
-
----
-
-📊 Datasets
-
-| Dataset | Purpose |
-|---|---|
-| [NeuMa Dataset](https://www.nature.com/articles/s41597-023-02392-9) | Primary — EEG + eye-tracking on FMCG grocery products |
-| [NeuroBioSense](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10964042/) | Secondary — emotion signals from food & cosmetics ads |
-| [Kaggle Video Ads](https://www.kaggle.com/datasets/karnikakapoor/video-ads-engagement-dataset) | Demo — video ads with engagement metrics |
+| Component                | Tool                                      |
+| ------------------------ | ------------------------------------------ |
+| Facial Expression Recognition | DeepFace (local, Apple Silicon)       |
+| Neural Video Encoding     | Custom-modified TRIBE v2 (Colab, T4 GPU)  |
+| Video Processing         | OpenCV                                     |
+| Audio Analysis (bonus)   | Whisper (OpenAI) — exploratory, not core   |
+| AI Insights              | Claude API                                 |
+| Dashboard                | Streamlit                                  |
+| Data Handling            | Pandas, NumPy                              |
+| Deep Learning            | PyTorch                                    |
+| Experiment Environment   | Google Colab (T4 GPU)                      |
 
 ---
 
-🚀 Getting Started
+## 📊 Datasets
+
+| Dataset                                                                                        | Purpose                                               |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| [NeuMa Dataset](https://www.nature.com/articles/s41597-023-02392-9)                            | Primary — EEG + eye-tracking on FMCG grocery products |
+| [NeuroBioSense](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10964042/)                        | Secondary — emotion signals from food & cosmetics ads |
+| [Kaggle Video Ads](https://www.kaggle.com/datasets/karnikakapoor/video-ads-engagement-dataset) | Demo — video ads with engagement metrics              |
+
+---
+
+## 🚀 Getting Started
 
 ### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/neuroadintelligence.git
-cd neuroadintelligence
+
+```
+git clone https://github.com/souricebunny/NeuroMarketing.git
+cd NeuroMarketing
 ```
 
 ### 2. Install dependencies
-```bash
-pip install streamlit deepface opencv-python transformers torch openai pandas numpy whisper
+
+```
+pip install streamlit deepface opencv-python torch pandas numpy
 ```
 
+> Whisper is optional and only required if you want to explore the bonus audio module.
+
 ### 3. Set your API key
-```bash
-export ANTHROPIC_API_KEY=your_key_here
-# or
-export OPENAI_API_KEY=your_key_here
+
+Add your Anthropic API key to `.streamlit/secrets.toml`:
+
+```
+ANTHROPIC_API_KEY = "your_key_here"
 ```
 
 ### 4. Run the dashboard
-```bash
+
+```
 streamlit run app.py
 ```
 
@@ -113,14 +122,15 @@ streamlit run app.py
 ## 📁 Project Structure
 
 ```
-neuroadintelligence/
+NeuroMarketing/
 │
 ├── app.py                  # Streamlit dashboard
 ├── pipeline/
-│   ├── input_module.py     # Video + script preprocessing
-│   ├── emotion_engine.py   # DeepFace emotion detection
-│   ├── audio_analysis.py   # Whisper audio tone extraction
-│   ├── scoring.py          # Valence-Arousal-CogLoad scorer
+│   ├── input_module.py     # Video preprocessing (10s trim)
+│   ├── emotion_engine.py   # DeepFace facial expression recognition (local)
+│   ├── tribe_engine.py     # Custom-modified TRIBE v2 (Colab, T4 GPU)
+│   ├── scoring.py          # Valence-Arousal-Engagement fusion (60/40)
+│   ├── audio_analysis.py   # Whisper — bonus/exploratory, not core pipeline
 │   └── insight_generator.py# LLM-powered recommendations
 │
 ├── data/
@@ -128,7 +138,7 @@ neuroadintelligence/
 │   └── datasets/           # NeuMa, NeuroBioSense (local)
 │
 ├── notebooks/
-│   └── tribe_v2_demo.ipynb # TRIBE v2 exploration on Colab
+│   └── tribe_v2_custom.ipynb # Custom TRIBE v2 exploration on Colab
 │
 ├── reports/                # Weekly progress reports (WPR1–8)
 ├── requirements.txt
@@ -137,16 +147,16 @@ neuroadintelligence/
 
 ---
 
-📄 License
+## 📄 License
 
 All third-party models and datasets are used in accordance with their respective licenses.
 
-- TRIBE v2: CC-BY-NC 4.0 (Meta FAIR)
+- TRIBE v2 (modified): CC-BY-NC 4.0 (Meta FAIR, original base)
 - DeepFace: MIT License
 - NeuMa Dataset: Creative Commons
 
 ---
 
-⭐ Topics
+## ⭐ Topics
 
 `neuromarketing` `multimodal-ai` `fmcg` `computational-advertising` `emotion-detection` `deepface` `streamlit` `consumer-neuroscience` `python` `tribe-v2`
